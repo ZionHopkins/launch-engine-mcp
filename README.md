@@ -1,6 +1,6 @@
 # Launch Engine
 
-**Business Execution OS as an MCP server.** Full pipeline from idea to revenue — for solo founders and bootstrappers.
+**Agentic Business Pipeline OS as an MCP server.** Full pipeline from idea to revenue — for solo founders and bootstrappers.
 
 Launch Engine gives any MCP-compatible AI client (Claude Desktop, Cursor, Windsurf, etc.) a complete business execution system: 35 SOP tools covering market research, offer design, product architecture, campaign deployment, validation, traffic, and optimization — plus 3 utility tools for state management.
 
