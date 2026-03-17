@@ -191,6 +191,41 @@ When you run `status` with no existing pipeline, you'll see:
 > 2. **scout** — Full active pipeline with deep research and validation
 > 3. **passive_deploy** — Marketplace assets (requires research first)
 
+## Best Practices
+
+### Getting Started
+
+- **Start with `status`** — always run this first. It reads your pipeline state and tells you exactly where you are and what to do next.
+- **New idea? Use `rapid_test` first** — don't run the full pipeline on an unvalidated idea. Spend $50-100 to get signal in 3-5 days. If it graduates, then run `scout`.
+- **One pipeline at a time** — you can run multiple rapid tests in parallel, but focus on one full pipeline at a time. Context switching kills momentum.
+
+### During the Pipeline
+
+- **Follow the order** — the prerequisite system exists for a reason. Each stage feeds the next. Skipping `market_intel` means `research` has no competitive context. Skipping `stress_test` means you might build assets for a broken offer.
+- **Don't skip `qa`** — it catches promise-product misalignment, unattributed statistics, and persona drift. Every asset that touches a buyer must clear the QA gate.
+- **Run `daily_check` every day** during validation — it takes 60 seconds and catches problems before they burn budget.
+- **Use `lessons` after every major decision** — verdicts (ADVANCE/KILL), graduated rapid tests, creative test winners. The pattern library makes every future pipeline smarter.
+
+### Working with the AI
+
+- **Let the AI execute the full SOP** — each tool returns complete instructions. Don't interrupt midway. Let it finish the research, generate the deliverables, and save the files.
+- **Review Tier 3/4 decisions carefully** — the system will pause and ask for your input on market selection, pricing, kill decisions, and anything involving real money. These pauses are intentional.
+- **Trust the math** — `unit_economics` will tell you if the numbers work at your budget. If the verdict is NON-VIABLE, don't try to force it. Move on or adjust the offer.
+
+### Scaling
+
+- **Validate before you scale** — `scale` requires proven creative winners with 30+ conversions. Scaling unvalidated campaigns is the fastest way to burn money.
+- **Compound your learnings** — passive assets that reach ANCHOR status should trigger `passive_compound`. One proven asset can spawn 5-10 related assets.
+- **Run `traffic_analytics` weekly** — attribution drift happens. What worked last week may not work next week. Stay on top of the data.
+
+### Common Mistakes to Avoid
+
+- **Don't build assets before `stress_test` passes** — a GO verdict means the offer is structurally sound. REVISE or REBUILD means fix the foundation first.
+- **Don't skip `name_lock`** — changing the business name after assets are built means rebuilding everything. Lock it early.
+- **Don't ignore KILL signals** — if rapid test metrics hit kill thresholds, kill it. If validation says KILL, capture the lessons and move on. Sunk cost is not a strategy.
+- **Don't publish without `qa` clearance** — unvetted copy with unattributed claims or persona misalignment damages trust and conversion rates.
+- **Don't run the full pipeline for every idea** — that's what `rapid_test` is for. Test 5-10 ideas cheaply, then invest the full pipeline in the winner.
+
 ## License
 
 MIT
