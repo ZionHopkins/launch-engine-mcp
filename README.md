@@ -4,6 +4,18 @@
 
 Launch Engine gives any MCP-compatible AI client (Claude Desktop, Cursor, Windsurf, etc.) a complete business execution system: 35 SOP tools covering market research, offer design, product architecture, campaign deployment, validation, traffic, and optimization — plus 3 utility tools for state management.
 
+## Install
+
+```bash
+npm install -g launch-engine-mcp
+```
+
+Or run directly without installing:
+
+```bash
+npx -y launch-engine-mcp
+```
+
 ## Quick Start
 
 ### Claude Desktop
@@ -45,8 +57,8 @@ Add to your MCP settings (`.cursor/mcp.json`):
 ### From Source
 
 ```bash
-git clone https://github.com/launch-engine/mcp.git
-cd mcp
+git clone https://github.com/ZionHopkins/launch-engine-mcp.git
+cd launch-engine-mcp
 npm install
 npm run build
 node dist/index.js
