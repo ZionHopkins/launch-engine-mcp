@@ -1,0 +1,11 @@
+src/
+scripts/
+tests/
+tsconfig.json
+.gitignore
+.env
+pipeline-state.json
+learnings.json
+assets/
+dist/**/*.d.ts
+dist/**/*.d.ts.map

@@ -1,0 +1,12 @@
+export { BUYER_RESEARCHER } from "./buyer-researcher.js";
+export { CAMPAIGN_BUILDER } from "./campaign-builder.js";
+export { DREAM_100_RESEARCHER } from "./dream-100-researcher.js";
+export { MARKET_RESEARCHER } from "./market-researcher.js";
+export { OFFER_ARCHITECT } from "./offer-architect.js";
+export { OPTIMIZER } from "./optimizer.js";
+export { PASSIVE_ASSET_DEPLOYER } from "./passive-asset-deployer.js";
+export { PERSONA_QA } from "./persona-qa.js";
+export { PRODUCT_DESIGNER } from "./product-designer.js";
+export { RAPID_TESTER } from "./rapid-tester.js";
+export { TRAFFIC_AGENT } from "./traffic-agent.js";
+export { VOICE_EXTRACTION_ENGINE } from "./voice-extraction-engine.js";

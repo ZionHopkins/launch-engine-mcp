@@ -1,0 +1,51 @@
+{
+  "name": "@launch-engine/mcp",
+  "version": "1.0.0",
+  "description": "Business Execution OS — MCP server for solo founders. Full pipeline from idea to revenue.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "launch-engine": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "templates",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "extract-sops": "tsx scripts/extract-sops.ts",
+    "test": "node --test tests/*.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "business",
+    "execution",
+    "pipeline",
+    "solo-founder",
+    "bootstrapper",
+    "claude",
+    "cursor"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/launch-engine/mcp"
+  }
+}
