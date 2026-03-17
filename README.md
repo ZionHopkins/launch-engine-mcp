@@ -15,7 +15,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "launch-engine": {
       "command": "npx",
-      "args": ["-y", "@launch-engine/mcp"],
+      "args": ["-y", "launch-engine-mcp"],
       "env": {
         "LAUNCH_ENGINE_PROJECT_DIR": "/path/to/your/project"
       }
@@ -33,7 +33,7 @@ Add to your MCP settings (`.cursor/mcp.json`):
   "mcpServers": {
     "launch-engine": {
       "command": "npx",
-      "args": ["-y", "@launch-engine/mcp"],
+      "args": ["-y", "launch-engine-mcp"],
       "env": {
         "LAUNCH_ENGINE_PROJECT_DIR": "/path/to/your/project"
       }

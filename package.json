@@ -1,5 +1,5 @@
 {
-  "name": "@launch-engine/mcp",
+  "name": "launch-engine-mcp",
   "version": "1.0.0",
   "description": "Business Execution OS — MCP server for solo founders. Full pipeline from idea to revenue.",
   "type": "module",
@@ -46,6 +46,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/launch-engine/mcp"
+    "url": "https://github.com/ZionHopkins/launch-engine-mcp"
   }
 }
