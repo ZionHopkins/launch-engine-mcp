@@ -10,8 +10,8 @@
 npx -y launch-engine-mcp
 ```
 
-<!-- TODO: Add demo GIF showing pipeline in action -->
-<!-- ![Launch Engine Demo](assets/demo.gif) -->
+
+![Launch Engine Demo](https://github.com/ZionHopkins/launch-engine-mcp/releases/download/untagged-475ca324e940ae1c1a8c/demo.gif)
 
 ---
 
