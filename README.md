@@ -1,8 +1,33 @@
 # Launch Engine
 
+[![npm version](https://img.shields.io/npm/v/launch-engine-mcp.svg)](https://www.npmjs.com/package/launch-engine-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/ZionHopkins/launch-engine-mcp.svg?style=social)](https://github.com/ZionHopkins/launch-engine-mcp)
+
 **Agentic Business Pipeline OS as an MCP server.** Full pipeline from idea to revenue — for solo founders and bootstrappers.
 
-Launch Engine gives any MCP-compatible AI client (Claude Desktop, Cursor, Windsurf, etc.) a complete business execution system: 35 SOP tools covering market research, offer design, product architecture, campaign deployment, validation, traffic, and optimization — plus 3 utility tools for state management.
+```bash
+npx -y launch-engine-mcp
+```
+
+<!-- TODO: Add demo GIF showing pipeline in action -->
+<!-- ![Launch Engine Demo](assets/demo.gif) -->
+
+---
+
+## Why Launch Engine?
+
+Most MCP servers give you one tool. A GitHub integration. A database query. A Slack bot.
+
+Launch Engine gives you **35 tools that work as a pipeline** — the entire playbook from raw idea to validated revenue, running inside the AI client you already use.
+
+- **No more blank-page paralysis.** Start with `scout` and the system tells you exactly what to do next, every step of the way.
+- **Every stage feeds the next.** Buyer research flows into offer design. Offer design flows into campaign copy. Campaign copy flows into validation. Nothing is wasted.
+- **Math before assets.** Unit economics are validated before you build anything. You'll never spend weeks building an offer that can't work at your budget.
+- **Test ideas for $50, not $5,000.** `rapid_test` gives you signal in 3-5 days with a landing page and paid traffic — before you commit to the full pipeline.
+- **Your AI becomes a co-founder, not a chatbot.** It doesn't just answer questions. It executes a structured business system with you.
+
+---
 
 ## Install
 
