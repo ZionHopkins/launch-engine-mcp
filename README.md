@@ -251,6 +251,10 @@ When you run `status` with no existing pipeline, you'll see:
 - **Don't publish without `qa` clearance** — unvetted copy with unattributed claims or persona misalignment damages trust and conversion rates.
 - **Don't run the full pipeline for every idea** — that's what `rapid_test` is for. Test 5-10 ideas cheaply, then invest the full pipeline in the winner.
 
+## Listings
+
+Listed on [MCP Server Hub](https://mcpserverhub.net/) | [MCP Registry](https://registry.modelcontextprotocol.io)
+
 ## License
 
 MIT
