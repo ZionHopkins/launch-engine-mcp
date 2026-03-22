@@ -51,6 +51,13 @@ CREATIVE PERFORMANCE (per ad):
   Ad [name/ID]: Spend $__ | Impressions __ | CTR __% | CPA $__ | Conv __
   Ad [name/ID]: Spend $__ | Impressions __ | CTR __% | CPA $__ | Conv __
   Ad [name/ID]: Spend $__ | Impressions __ | CTR __% | CPA $__ | Conv __
+
+ORGANIC (optional — include if /content-engine is active):
+  GSC Impressions (last 28 days):
+  GSC Clicks (last 28 days):
+  GSC Avg Position:
+  Top performing page:
+  AI citation check: Cited by ChatGPT? Y/N | Perplexity? Y/N | AI Overview? Y/N
 \`\`\`
 
 If the user pastes partial data, work with what's available. Flag which metrics are missing and what they'd unlock if provided.
@@ -109,6 +116,13 @@ Flag any metric that is:
 - High traffic + good engagement + no conversions → Offer problem → Execution OS /feedback
 - Conversions but high refunds → Product problem → Execution OS /feedback (Product Architecture)
 - Conversions but no repeat/referral → LTV problem → Product or retention issue
+
+**Organic-side issues (Route to /seo-check or /content-engine):**
+- Impressions high / clicks low → Title/meta description optimization needed → \`/seo-check\`
+- Position 5-15 on target keywords → Content depth insufficient → add sections, update stats → \`/seo-check\`
+- Not cited by AI (ChatGPT/Perplexity/AI Overview) → Citation magnet gap → \`/seo-check\` + \`/content-engine\`
+- Organic traffic declining → Content decay → \`/seo-check\` freshness audit
+- Organic traffic high / no conversions → Content-to-offer bridge broken → \`/funnel-optimize\`
 
 **Scaling signals (Route to /scale):**
 - All metrics healthy + budget headroom → Ready to scale

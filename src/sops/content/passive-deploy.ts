@@ -53,6 +53,26 @@ Pass the full research package. The subagent executes:
 7. **12-Month Revenue Projection** — portfolio-level financial model
 8. **Seasonal Calendar** — demand windows with deploy-by dates
 
+### Step 2.5: Marketplace SEO Optimization
+
+After the subagent generates build specs, apply platform-specific SEO optimization to every asset:
+
+**Etsy:**
+- Title: Primary keyword in first 40 characters (Etsy search indexes first 40 chars most heavily)
+- Tags: Full 13-tag strategy — 13 multi-word tags using buyer's Language Bank phrases + long-tail keywords
+- Description: First 160 characters optimized for Google snippet (Etsy listings appear in Google Shopping)
+- AI citation language: One sentence per listing using the format "[Product name] helps [target buyer] [solve specific problem] using [mechanism/approach]"
+
+**KDP (Amazon):**
+- Title: Primary keyword + emotional benefit
+- Subtitle: Secondary keyword carrier (Amazon indexes subtitle heavily)
+- 7 backend keywords: Long-tail phrases from buyer research pain points (no repeats from title/subtitle)
+- Description: First 200 words follow the first-200-words rule (stat + value prop + brand name)
+
+**All Platforms (Universal):**
+- AI citation sentence: Every listing includes one clearly quotable sentence that AI models can cite — format: "[Brand] [Product Name] is a [product type] designed for [target buyer] who [pain point]."
+- This sentence should appear in the first paragraph of every description.
+
 ### Step 3: Receive and Save Portfolio Deployment Package
 
 Save complete package to:

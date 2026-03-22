@@ -19,7 +19,7 @@ npx -y launch-engine-mcp
 
 Most MCP servers give you one tool. A GitHub integration. A database query. A Slack bot.
 
-Launch Engine gives you **35 tools that work as a pipeline** — the entire playbook from raw idea to validated revenue, running inside the AI client you already use.
+Launch Engine gives you **39 tools that work as a pipeline** — the entire playbook from raw idea to validated revenue, running inside the AI client you already use.
 
 - **No more blank-page paralysis.** Start with `scout` and the system tells you exactly what to do next, every step of the way.
 - **Every stage feeds the next.** Buyer research flows into offer design. Offer design flows into campaign copy. Campaign copy flows into validation. Nothing is wasted.
@@ -93,18 +93,19 @@ node dist/index.js
 
 Launch Engine is a **two-layer tool system**:
 
-**Layer A — 35 SOP Tools** (read-only): Each tool validates prerequisites against `pipeline-state.json`, loads upstream context from previous stages, checks `learnings.json` for patterns, and returns full SOP instructions enriched with that context. Your AI executes the instructions.
+**Layer A — 39 SOP Tools** (read-only): Each tool validates prerequisites against `pipeline-state.json`, loads upstream context from previous stages, checks `learnings.json` for patterns, and returns full SOP instructions enriched with that context. Your AI executes the instructions.
 
 **Layer B — 3 Utility Tools** (mutations): `update_pipeline_state`, `save_asset`, `capture_learning`. These handle all state writes and file creation. Your AI calls them after executing each SOP.
 
 ## The Pipeline
 
 ```
-Three entry points:
+Four entry points:
 
 1. scout        → Full pipeline (research → offer → build → deploy → validate)
 2. rapid_test   → Quick $50-100 test (signal in 3-5 days)
 3. passive_deploy → Marketplace assets (after research)
+4. tournament   → Batch-evaluate 3-5 ideas through Layer 1 simultaneously
 ```
 
 ### Full Pipeline Flow
@@ -119,18 +120,21 @@ LAYER 2 (Builder):
 LAYER 3 (Validator):
   validate_check (daily) → validate_decide → feedback → iterate
 
-TRAFFIC:
+TRAFFIC (Paid):
   traffic_strategy → channels → creative_test → funnel_optimize → scale
 
+ORGANIC GROWTH (runs parallel with paid):
+  content_engine → content_repurpose → seo_check (monthly)
+
 CROSS-CUTTING:
-  status | daily_check | lessons | voice_extract | dream_100
+  status | daily_check | lessons | voice_extract | dream_100 | tournament
 ```
 
 Each tool checks prerequisites automatically. If you try to run `research` before completing `market_intel`, you'll get a clear STAGE_BLOCKED message telling you exactly what to run first.
 
 ## Tools Reference
 
-### SOP Tools (35)
+### SOP Tools (39)
 
 | Tool | Description | Prerequisites |
 |------|-------------|---------------|
@@ -169,6 +173,10 @@ Each tool checks prerequisites automatically. If you try to run `research` befor
 | `daily_check` | 5-minute daily operations pulse | Live campaigns |
 | `lessons` | Pattern library — capture and retrieve | None |
 | `voice_extract` | Brand voice extraction from content | qa |
+| `content_engine` | Topic cluster research, SEO/GEO content generation | qa, validate_prep |
+| `content_repurpose` | Single-pass multi-platform content repurposing | content_engine |
+| `seo_check` | Monthly SEO/GEO audit with AI citation tracking | content_engine |
+| `tournament` | Batch-evaluate 3-5 ideas through Layer 1 | None (entry point) |
 
 ### Utility Tools (3)
 
@@ -197,7 +205,14 @@ your-project/
         ├── validation/       # Deployment packages, daily checks, verdicts
         ├── voice/            # Brand voice calibration
         ├── passive-portfolio/ # PADA outputs
-        └── rapid-test/       # Rapid test assets
+        ├── rapid-test/       # Rapid test assets
+        └── content/          # Organic growth engine outputs
+            ├── pillar/       # 2,000-4,000 word guides
+            ├── spokes/       # 1,000-2,000 word pages
+            ├── repurposed/   # Multi-platform assets per source
+            ├── schema/       # JSON-LD files
+            ├── seo-config/   # robots.txt, sitemap, brand signals
+            └── audits/       # Monthly SEO/GEO audit reports
 ```
 
 ## Configuration
@@ -250,6 +265,24 @@ When you run `status` with no existing pipeline, you'll see:
 - **Don't ignore KILL signals** — if rapid test metrics hit kill thresholds, kill it. If validation says KILL, capture the lessons and move on. Sunk cost is not a strategy.
 - **Don't publish without `qa` clearance** — unvetted copy with unattributed claims or persona misalignment damages trust and conversion rates.
 - **Don't run the full pipeline for every idea** — that's what `rapid_test` is for. Test 5-10 ideas cheaply, then invest the full pipeline in the winner.
+
+## Automated QA Test Suite (New in v1.1.0)
+
+The pipeline includes an automated QA test suite that runs at 3 points:
+
+| Gate | When | What It Catches |
+|------|------|----------------|
+| **Pre-Deploy** | Before `deploy` generates assets | Missing research, broken unit economics math, placeholder text |
+| **Post-Deploy** | After assets written, before `qa` | HTML issues, exposed API keys, email subject length, missing CTAs |
+| **Post-QA** | After persona corrections | Structural issues introduced by corrections |
+
+Test modules in `qa-tests/`:
+- `test_landing_page.py` — HTML structure, CTA presence, secret detection
+- `test_campaign_assets.py` — Email/ad validation, brand consistency
+- `test_research_report.py` — Section completeness, citation density, contradiction detection
+- `test_unit_economics.py` — Margin positivity, CAC/LTV ratio, math verification
+
+**Requires:** Python 3.10+
 
 ## Listings
 

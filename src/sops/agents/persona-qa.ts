@@ -131,6 +131,39 @@ For EACH customer-facing asset, run the following checks:
 - Unauthorized promise → CRITICAL (must be removed or added to Copy Directives)
 - Implied unauthorized promise → MODERATE (rephrase to stay within bounds)
 
+### Phase 2.5: SEO Structure Check (Conditional — Advisory Only)
+
+**Only run this phase when:** the invoking command passes \`seo_check_enabled: true\` (set when \`organic_growth.content_engine.status == "complete"\` in pipeline state OR platform supports organic traffic).
+
+This phase is **NON-BLOCKING** — all flags are ADVISORY. They do not affect the CLEARED/BLOCKED verdict. They appear in a separate section of the QA report.
+
+For each landing page and content asset, check:
+
+| # | Check | Pass Criteria | Advisory Flag If Missing |
+|---|-------|--------------|------------------------|
+| 1 | H1 keyword | H1 contains primary target keyword | "H1 missing primary keyword — suggest: [rewrite]" |
+| 2 | H2 questions | ≥50% of H2s framed as questions | "H2s are statements — reframe as questions for featured snippets" |
+| 3 | FAQ section | FAQ section exists with question-as-header format | "No FAQ section — add 3-5 buyer questions for FAQ schema" |
+| 4 | Meta descriptions | Present and under 160 chars | "Meta description missing or over 160 chars" |
+| 5 | First-200-words | First 200 words contain stat + value prop + brand name | "First-200-words rule not met — [specify what's missing]" |
+
+For each flag, include a suggested rewrite. Append to QA report as:
+
+\`\`\`
+SEO STRUCTURE (ADVISORY — does not affect clearance verdict)
+
+| Check | Landing Page | Email Seq | Ad Copy |
+|-------|-------------|-----------|---------|
+| H1 keyword | ✅ | N/A | N/A |
+| H2 questions | ⚠️ 2/6 are questions | N/A | N/A |
+| FAQ section | ✅ | N/A | N/A |
+| Meta descriptions | ✅ | N/A | N/A |
+| First-200-words | ⚠️ missing stat | N/A | N/A |
+
+Suggested Rewrites:
+- [specific suggestion per flag]
+\`\`\`
+
 ### Phase 3: Severity Classification
 
 For each flagged issue:

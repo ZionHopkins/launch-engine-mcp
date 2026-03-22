@@ -12,6 +12,7 @@ import {
   PASSIVE_DEPLOY, PASSIVE_CHECK, PASSIVE_COMPOUND, PASSIVE_PORTFOLIO,
   RAPID_TEST, RAPID_CHECK, RAPID_GRADUATE, RAPID_STATUS,
   STATUS, DAILY_CHECK, LESSONS, VOICE_EXTRACT,
+  CONTENT_ENGINE, CONTENT_REPURPOSE, SEO_CHECK, TOURNAMENT,
 } from "../sops/content/index.js";
 
 // Agent content imports
@@ -19,6 +20,7 @@ import {
   BUYER_RESEARCHER, CAMPAIGN_BUILDER, DREAM_100_RESEARCHER, MARKET_RESEARCHER,
   OFFER_ARCHITECT, OPTIMIZER, PASSIVE_ASSET_DEPLOYER, PERSONA_QA,
   PRODUCT_DESIGNER, RAPID_TESTER, TRAFFIC_AGENT, VOICE_EXTRACTION_ENGINE,
+  CONTENT_STRATEGIST, SEO_AUDITOR,
 } from "../sops/agents/index.js";
 
 /** Map tool names to their SOP content string */
@@ -58,6 +60,10 @@ const SOP_CONTENT: Record<string, string> = {
   daily_check: DAILY_CHECK,
   lessons: LESSONS,
   voice_extract: VOICE_EXTRACT,
+  content_engine: CONTENT_ENGINE,
+  content_repurpose: CONTENT_REPURPOSE,
+  seo_check: SEO_CHECK,
+  tournament: TOURNAMENT,
 };
 
 /** Map subagent names to their instruction content */
@@ -74,6 +80,8 @@ const AGENT_CONTENT: Record<string, string> = {
   "traffic-agent": TRAFFIC_AGENT,
   "dream-100-researcher": DREAM_100_RESEARCHER,
   "rapid-tester": RAPID_TESTER,
+  "content-strategist": CONTENT_STRATEGIST,
+  "seo-auditor": SEO_AUDITOR,
 };
 
 export function registerSopTools(server: McpServer): void {

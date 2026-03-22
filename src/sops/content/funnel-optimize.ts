@@ -117,6 +117,9 @@ Update pipeline-state.json with optimization history.
 - If diagnosis points to PRODUCT problem (Convert → Retain) → Route to Execution OS /feedback for Product Architecture iteration
 - If diagnosis points to COPY problem (Land → Read) → Generate new copy variation AND notify Execution OS to update source assets
 - If diagnosis is purely traffic-side → Handle internally
+- **Organic bounce rate high** → Intent mismatch between search query and page content → Route to \`/seo-check\` for content-query alignment audit
+
+**Core Web Vitals note:** Page speed directly affects both search rankings and ad Quality Scores. Run [PageSpeed Insights](https://pagespeed.web.dev/) on the landing page — mobile score below 70 is a conversion headwind independent of copy quality. Fix speed before testing copy variations.
 
 ## Autonomy
 Tier 1 — Full Auto for diagnosis and variation generation.

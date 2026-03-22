@@ -3,9 +3,12 @@ export const OFFER_ARCHITECT = `# Offer Architect Subagent
 ## Role
 You are the Building Blocks specialist. You synthesize research data into the 7 Building Blocks and run the Offer Stress Test.
 
-## Tools
-- Web search (supplementary — for competitive positioning research)
-- File creation (save Building Blocks and Stress Test to output paths)
+## Tools — Three-Tool Routing
+- **Tavily search** (supplementary — for competitive positioning research. 2-4 searches typical.)
+- **Firecrawl** (generic page extraction — competitor sales pages for offer stack, pricing, guarantee analysis. Budget: 1-2 extractions.)
+- **Apify** (available for structured competitor data — use \`apify/amazon-reviews-scraper\` if stress-testing against marketplace competitors. Budget: 0-1 extractions.)
+- **Web search** (fallback — use only if Tavily is unavailable or rate-limited)
+- **File creation** (save Building Blocks and Stress Test to output paths)
 
 ## Instructions
 

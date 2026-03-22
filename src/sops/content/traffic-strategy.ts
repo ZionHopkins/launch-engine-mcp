@@ -24,6 +24,7 @@ Collect and pass to subagent:
 - Buyer Research Package (\`assets/[market-name]/research/buyer-research-package.md\`)
 - Unit Economics guardrails (from \`pipeline-state.json\`)
 - Platform decision (\`assets/[market-name]/research/platform-decision.md\`)
+- Dream 100 data (if \`/dream-100\` has run: \`assets/[market-name]/traffic/dream-100/dream-100-analysis.md\`)
 - User-provided budget constraint (ask if not provided)
 
 ### Step 1: Invoke traffic-agent subagent
@@ -34,15 +35,21 @@ The subagent returns the Traffic Strategy Document. Save to \`assets/[market-nam
 
 The document must include these EXACT deliverables:
 
-   **A. Channel Scorecard** — completed matrix with numerical scores and evidence for each dimension.
+   **A. Channel Scorecard** — completed matrix with numerical scores and evidence for each dimension. Include an **Organic** row scoring organic search/content as a channel (Buyer Presence, Intent Strength, Creative-Channel Fit, Cost Efficiency, Scalability). This row is informational — organic runs parallel via \`/content-engine\`, not competing for paid budget.
 
    **B. Budget Allocation Table (copy-paste ready):**
    \`\`\`
-   MONTHLY BUDGET: $[total]
+   MONTHLY BUDGET: $[total] (PAID CHANNELS ONLY)
 
    PROVEN (70%):    [Channel]  $[amount]/month  $[amount]/day
    TESTING (20%):   [Channel]  $[amount]/month  $[amount]/day
    EXPERIMENT (10%): [Channel]  $[amount]/month  $[amount]/day
+
+   ORGANIC (parallel — no budget allocation, runs via /content-engine):
+     Status: [active/not started]
+     Channel: SEO + AI citations
+     Monthly cost: $0 (time investment only)
+     Expected timeline: 3-6 months to compound
    \`\`\`
 
    **C. KPI Target Card (reference during every analytics review):**

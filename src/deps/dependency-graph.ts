@@ -1,5 +1,5 @@
 /**
- * Full prerequisite map for all 35+ SOP tools.
+ * Full prerequisite map for all 39 SOP tools.
  *
  * Each entry defines:
  *  - prerequisites: stages that must be "complete" (or specific verdict) before this tool runs
@@ -23,7 +23,7 @@ export interface ToolDependency {
   name: string;
   description: string;
   prerequisites: Prerequisite[];
-  layer: "layer_1" | "layer_2" | "layer_3" | "traffic" | "passive" | "rapid" | "cross_cutting";
+  layer: "layer_1" | "layer_2" | "layer_3" | "traffic" | "passive" | "rapid" | "cross_cutting" | "organic";
   stateKey: string;
   isPipelineTool: boolean;
   isReadOnly: boolean;
@@ -494,6 +494,67 @@ export const DEPENDENCY_GRAPH: Record<string, ToolDependency> = {
     isReadOnly: true,
     isEntryPoint: false,
     learningsCategories: [],
+  },
+
+  // ═══════════════════════════════════════════════
+  // ORGANIC GROWTH ENGINE
+  // ═══════════════════════════════════════════════
+  content_engine: {
+    name: "content_engine",
+    description: "Organic Content & SEO/GEO Engine — topic cluster research, pillar/spoke content generation, schema markup, AI visibility baselines.",
+    prerequisites: [
+      { path: "layer_2.qa.status", value: "complete", label: "QA Gate" },
+      { path: "layer_2.validate_prep.status", value: "complete", label: "Validation Prep" },
+    ],
+    layer: "organic",
+    stateKey: "organic_growth.content_engine",
+    isPipelineTool: true,
+    isReadOnly: false,
+    isEntryPoint: false,
+    learningsCategories: ["seo", "content", "organic", "geo"],
+    subagent: "content-strategist",
+  },
+
+  content_repurpose: {
+    name: "content_repurpose",
+    description: "Single-Pass Content Repurposing — takes one pillar page and generates 7+ platform-native assets (YouTube, short-form, Reddit, LinkedIn, newsletters, social).",
+    prerequisites: [
+      { path: "organic_growth.content_engine.status", value: "complete", label: "Content Engine" },
+    ],
+    layer: "organic",
+    stateKey: "organic_growth.content_repurpose",
+    isPipelineTool: true,
+    isReadOnly: false,
+    isEntryPoint: false,
+    learningsCategories: ["content", "distribution"],
+    subagent: "content-strategist",
+  },
+
+  seo_check: {
+    name: "seo_check",
+    description: "Monthly SEO/GEO Audit — content health, AI citation tracking, competitive gaps, technical SEO, content freshness scoring.",
+    prerequisites: [
+      { path: "organic_growth.content_engine.status", value: "complete", label: "Content Engine" },
+    ],
+    layer: "organic",
+    stateKey: "organic_growth.seo_check",
+    isPipelineTool: true,
+    isReadOnly: false,
+    isEntryPoint: false,
+    learningsCategories: ["seo", "content_decay", "ai_visibility"],
+    subagent: "seo-auditor",
+  },
+
+  tournament: {
+    name: "tournament",
+    description: "Parallel Portfolio Tournament — batch-evaluates 3-5 business ideas through Layer 1 simultaneously with comparison gates. ~50-60% faster than sequential scout runs.",
+    prerequisites: [],
+    layer: "layer_1",
+    stateKey: "tournament",
+    isPipelineTool: true,
+    isReadOnly: false,
+    isEntryPoint: true,
+    learningsCategories: ["market_selection"],
   },
 
   // ═══════════════════════════════════════════════
