@@ -19,7 +19,7 @@ Complete deployment first, then return with real-world data.
 \`\`\`
 
 ### Step 1: Receive the data
-User pastes or describes results. Accept any format — numbers, screenshots described, qualitative feedback, email replies, survey responses.
+User pastes or describes results. Accept any format — numbers, screenshots described, qualitative feedback, email replies, survey responses, **organic data** (GSC metrics, AI citation results, content decay observations).
 
 ### Step 2: Delegate to optimizer subagent
 Invoke \`optimizer\` subagent with:

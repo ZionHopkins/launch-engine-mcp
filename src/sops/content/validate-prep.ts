@@ -23,14 +23,69 @@ Check pipeline-state.json:
 
 ### Step 2: Build Deployment Package
 
-**Package Component A: Deployable Landing Page**
+**Package Component A: SEO-Optimized Site Package**
 - Take the landing page copy from \`/deploy\` output
 - Wrap it in clean, deployable HTML with:
-  - Responsive layout (mobile-first)
+  - Responsive layout (mobile-first, sub-2s target load time)
   - Email capture form (compatible with common tools: ConvertKit, Mailchimp, Beehiiv)
   - Basic analytics snippet placeholder (Google Analytics / Meta Pixel)
   - Clear markers for where to paste tracking IDs
+  - **SEO Foundation:**
+    - Meta title (<60 chars) and meta description (<160 chars)
+    - Canonical URL tag
+    - Open Graph tags (og:title, og:description, og:image, og:url)
+    - Twitter Card tags (twitter:card, twitter:title, twitter:description)
+    - JSON-LD schema: Organization + Product + FAQ (extracted from FAQ section)
+    - Internal links to pillar/spoke pages (if \`/content-engine\` has run)
 - Save as \`assets/[market-name]/validation/tier-[N]/landing-page.html\`
+
+- **SEO Infrastructure (ALWAYS generated — not gated on /content-engine):**
+  - \`robots.txt\` with AI crawler permissions:
+    \`\`\`
+    User-agent: *
+    Allow: /
+
+    User-agent: GPTBot
+    Allow: /
+
+    User-agent: PerplexityBot
+    Allow: /
+
+    User-agent: ClaudeBot
+    Allow: /
+
+    User-agent: Googlebot
+    Allow: /
+
+    Sitemap: [site-url]/sitemap.xml
+    \`\`\`
+  - \`sitemap.xml\` — starts with just the landing page URL + lastmod date. Expanded as content pages are added.
+  - **HowTo schema** — if the product has a step-by-step process (check Product Blueprint), generate HowTo JSON-LD:
+    \`\`\`json
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "[Process name from Product Blueprint]",
+      "step": [
+        {"@type": "HowToStep", "name": "[Step 1]", "text": "[Description]"},
+        {"@type": "HowToStep", "name": "[Step 2]", "text": "[Description]"}
+      ]
+    }
+    \`\`\`
+
+- **If \`/content-engine\` has run**, also generate:
+  - **Pillar page** — full pillar content with:
+    - H1/H2/H3 semantic hierarchy
+    - Article schema (JSON-LD)
+    - Author byline and updated date
+    - Internal links to spokes and landing page
+    - Breadcrumb navigation
+    - Save to \`assets/[market-name]/content/pillar/[slug].html\`
+  - **Spoke pages** — spoke content with:
+    - Same SEO structure as pillar
+    - Breadcrumb nav linking to pillar
+    - Links back to pillar and adjacent spokes
+    - Save to \`assets/[market-name]/content/spokes/[slug].html\`
 
 **Package Component B: Ad Campaign Spec (Validation-Scoped)**
 - Take ad copy variations from \`/deploy\`
@@ -94,6 +149,24 @@ TRACKING:
 ☐ 12. Bookmark this dashboard view: [platform URL pattern].
 ☐ 13. Set a daily alarm for [time] to run /validate-check.
 
+SEO & INDEXING (ALWAYS — baseline for every deployment):
+☐ 14. Upload robots.txt to site root.
+☐ 15. Upload sitemap.xml to site root.
+☐ 16. Go to Google Search Console → Add Property → verify site.
+☐ 17. Submit sitemap URL in Search Console → Sitemaps → Add.
+☐ 18. Go to Bing Webmaster Tools → Add Site → verify → submit sitemap.
+☐ 19. Run PageSpeed Insights (https://pagespeed.web.dev/) on live URL. Target: Mobile score ≥ 70, load time under 2 seconds.
+☐ 20. Create an "Organic Traffic" segment in Google Analytics.
+
+BRAND SIGNAL INFRASTRUCTURE (ALWAYS — baseline):
+☐ 21. Claim Google Business Profile (if applicable) — enter business name, category, description.
+☐ 22. Ensure NAP (Name, Address, Phone) is consistent across all listings.
+☐ 23. Verify Organization schema is rendering (use Google Rich Results Test).
+
+EXTENDED SEO (if /content-engine has run):
+☐ 24. Verify pillar/spoke pages are indexed in Search Console.
+☐ 25. Bookmark AI visibility check prompts from ai-visibility-baseline.md.
+
 DONE. Ads will start delivering within 1-24 hours.
 First /validate-check: [tomorrow's date]
 Final /validate-decide: [end date]
@@ -155,6 +228,15 @@ assets/[market-name]/validation/tier-[N]/
   deployment-checklist.md
   decision-thresholds.md
   daily-template.txt
+
+# SEO infrastructure (ALWAYS generated):
+assets/[market-name]/content/seo-config/
+  robots.txt
+  sitemap.xml
+
+# If /content-engine has run, pillar/spoke pages are in their canonical locations:
+assets/[market-name]/content/pillar/       # Pillar pages
+assets/[market-name]/content/spokes/       # Spoke pages
 \`\`\`
 
 Update pipeline-state.json:

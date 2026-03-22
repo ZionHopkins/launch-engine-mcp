@@ -5,3 +5,9 @@ dist/
 pipeline-state.json
 learnings.json
 assets/
+qa-tests/__pycache__/
+.mcpregistry_github_token
+.mcpregistry_registry_token
+mcp-publisher.exe
+server.json
+x-hero.html

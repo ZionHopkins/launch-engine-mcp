@@ -50,6 +50,13 @@ Pass the complete package to the persona-qa subagent. The subagent runs 7 alignm
 6. **Identity Gap Bridge** — Does the transformation narrative match their specific gap?
 7. **Promise Authorization Audit** — Does every claim stay within Copy Directives?
 
+**Optional Check 8: Technical/SEO Structure Alignment** — runs only when \`organic_growth.content_engine.status == "complete"\` in pipeline state OR the selected platform supports organic traffic. This check is **ADVISORY only** (non-blocking). It verifies:
+- H1 contains primary keyword
+- H2s framed as questions (featured snippet optimization)
+- FAQ section present with question-as-header format
+- Meta descriptions present and under 160 chars
+- First 200 words contain stat + value prop + brand name
+
 ### Step 3: Receive QA Report + Corrected Assets
 
 The subagent returns:
@@ -92,9 +99,26 @@ Auto-capture to /lessons:
 - Any systematic pattern in the types of corrections needed
 \`\`\`
 
-### Step 6: VEE Handoff (CLEARED/CLEARED WITH CONDITIONS only)
+### Step 6: Post-QA Verification (AUTO-EXECUTE — Tier 1)
 
-The persona-qa subagent handles this automatically as Phase 7:
+**Final structural check after persona corrections.** The persona-qa subagent may have edited assets during correction — this re-run verifies those edits didn't break structural integrity (introduce placeholder text, push subject lines over length, break HTML, etc.).
+
+**Execute immediately using Bash:**
+\`\`\`bash
+python qa-tests/qa_runner.py [market-slug] --module landing_page --module campaign_assets --json-out assets/[market-name]/campaigns/qa-post-correction.json
+\`\`\`
+
+Note: research_report and unit_economics modules are NOT re-run here — they were already validated pre-deploy and persona QA doesn't touch those files.
+
+**If exit code is 0:** proceed to Step 7.
+
+**If exit code is 1:** fix directly (Tier 1 — auto-fix structural issues introduced by persona corrections). Re-run. Max 3 iterations.
+
+**If iterations exhaust:** present remaining failures to user as Tier 3.
+
+### Step 7: VEE Handoff (CLEARED/CLEARED WITH CONDITIONS only)
+
+The persona-qa subagent handles this automatically:
 - Archives cleared assets to \`assets/[market-name]/campaigns/qa-passed/\` with metadata
 - Initializes voice state if first QA pass for this business
 - Increments VEE accumulation counter
@@ -105,7 +129,7 @@ If VEE READY appears in the QA report, inform the user:
 Voice Extraction Engine ready. Run /voice-extract --business [slug] to generate brand voice doc.
 \`\`\`
 
-### Step 7: Update Pipeline State
+### Step 8: Update Pipeline State
 
 \`\`\`json
 {
@@ -127,6 +151,15 @@ Voice Extraction Engine ready. Run /voice-extract --business [slug] to generate 
       "critical": "[N]",
       "moderate": "[N]",
       "minor": "[N]"
+    },
+    "seo_structure": {
+      "ran": true,
+      "advisory_flags": "[N]",
+      "h1_keyword": "[pass/fail]",
+      "h2_questions": "[pass/fail]",
+      "faq_present": "[pass/fail]",
+      "meta_descriptions": "[pass/fail]",
+      "first_200_words": "[pass/fail]"
     },
     "assets_cleared": ["[list of cleared asset filenames]"],
     "output_file": "assets/[market-name]/campaigns/qa-report.md"

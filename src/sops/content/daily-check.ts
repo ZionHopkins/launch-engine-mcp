@@ -80,6 +80,7 @@ Best day: [date] — [why]
 Worst day: [date] — [why]
 Trend: [improving / stable / declining]
 Key learning: [one sentence — what did this week teach you?]
+Organic: [only if organic_growth exists in pipeline state] GSC clicks this week: [X] | Next /seo-check due: [date]
 Recommendation: [one of: keep running / run /creative-test / run /funnel-optimize / run /scale / run /traffic-analytics for deep dive]
 \`\`\`
 

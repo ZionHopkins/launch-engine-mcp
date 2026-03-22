@@ -18,6 +18,7 @@ After Stress Test → GO. Requires Building Blocks 2 (BIG IDEA), 3 (OFFER), 6 (M
 
 ### Phase 2: Mechanism Operationalization
 - Define the Unique Mechanism's operating principles (3-5 core principles)
+- **Write each principle as a quotable, AI-citable definition** — format: "[Principle Name] is [clear definition in one sentence]." These become citation anchors that AI models can reference directly.
 - Map each principle to a transformation milestone
 - Create implementation sequence with specific actions
 - Define measurable waypoints at each stage
