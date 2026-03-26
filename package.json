@@ -1,7 +1,7 @@
 {
   "name": "launch-engine-mcp",
   "version": "1.1.0",
-  "description": "Business Execution OS — MCP server for solo founders. Full pipeline from idea to revenue.",
+  "description": "Business Execution OS for solo founders and bootstrappers — 39 structured tools guiding raw idea to validated revenue. Market research, buyer personas, offer design, landing pages, email sequences, ad copy, traffic strategy, SEO content engine, and unit economics — orchestrated through Claude or Cursor.",
   "type": "module",
   "license": "MIT",
   "bin": {
@@ -24,7 +24,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.1",
+    "@modelcontextprotocol/sdk": "^1.27.1",
     "zod": "^3.24.4"
   },
   "devDependencies": {
@@ -37,13 +37,36 @@
   },
   "keywords": [
     "mcp",
+    "mcp-server",
+    "model-context-protocol",
     "business",
-    "execution",
-    "pipeline",
+    "startup",
     "solo-founder",
     "bootstrapper",
+    "solopreneur",
+    "entrepreneur",
+    "market-research",
+    "buyer-persona",
+    "competitive-analysis",
+    "landing-page",
+    "email-sequence",
+    "ad-copy",
+    "copywriting",
+    "seo",
+    "content-marketing",
+    "organic-growth",
+    "unit-economics",
+    "validation",
+    "offer-design",
+    "traffic",
+    "funnel",
+    "conversion",
     "claude",
-    "cursor"
+    "cursor",
+    "ai-agent",
+    "pipeline",
+    "execution",
+    "automation"
   ],
   "repository": {
     "type": "git",

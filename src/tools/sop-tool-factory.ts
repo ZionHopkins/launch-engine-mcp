@@ -51,6 +51,11 @@ export function registerSopTool(server: McpServer, config: SopToolConfig): void 
     dep.name,
     dep.description,
     inputSchema,
+    {
+      readOnlyHint: true,
+      destructiveHint: false,
+      openWorldHint: false,
+    },
     async (args: Record<string, unknown>) => {
       try {
         return await executeSopTool(dep, sopContent, agentContent, args);
