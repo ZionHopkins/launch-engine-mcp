@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![GitHub stars](https://img.shields.io/github/stars/ZionHopkins/launch-engine-mcp.svg?style=social)](https://github.com/ZionHopkins/launch-engine-mcp)
 
-**Agentic Business Pipeline OS as an MCP server.** Full pipeline from idea to revenue — for solo founders and bootstrappers.
+Full pipeline from idea to revenue — for solo founders and bootstrappers.
 
 ```bash
 npx -y launch-engine-mcp
