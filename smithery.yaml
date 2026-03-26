@@ -1,0 +1,15 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      projectDir:
+        type: string
+        title: "Project Directory"
+        description: "Path to your project directory where pipeline-state.json and assets/ live. Defaults to current working directory."
+  commandFunction: |
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'launch-engine-mcp'],
+      env: config.projectDir ? { LAUNCH_ENGINE_PROJECT_DIR: config.projectDir } : {}
+    })

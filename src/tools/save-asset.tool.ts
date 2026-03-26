@@ -12,6 +12,12 @@ export function registerSaveAssetTool(server: McpServer): void {
       file_path: z.string().describe("Path relative to assets/[market-name]/, e.g. 'research/scout-report.md'"),
       content: z.string().describe("The file content to write"),
     },
+    {
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
     async (args) => {
       try {
         const slug = toMarketSlug(args.market_name as string);

@@ -21,6 +21,12 @@ export function registerCaptureLearningTool(server: McpServer): void {
       applies_to: z.string().describe("What future decisions this informs"),
       tags: z.array(z.string()).describe("Searchable keywords for retrieval"),
     },
+    {
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: false,
+      openWorldHint: false,
+    },
     async (args) => {
       try {
         const today = new Date().toISOString().split("T")[0];

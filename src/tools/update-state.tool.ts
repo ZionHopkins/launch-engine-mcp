@@ -17,6 +17,12 @@ export function registerUpdateStateTool(server: McpServer): void {
       budget: z.number().optional().describe("For rapid tests: test budget (default: 75)"),
       duration_days: z.number().optional().describe("For rapid tests: test duration (default: 5)"),
     },
+    {
+      readOnlyHint: false,
+      destructiveHint: false,
+      idempotentHint: true,
+      openWorldHint: false,
+    },
     async (args) => {
       try {
         const slug = toMarketSlug(args.market_name as string);
