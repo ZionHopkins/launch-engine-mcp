@@ -1,11 +1,11 @@
 {
-  "name": "launch-engine-mcp",
+  "name": "asset-factory-mcp",
   "version": "1.2.0",
   "description": "Business Execution OS for solo founders and bootstrappers — 42 structured tools guiding raw idea to validated revenue. Market research, buyer personas, offer design, landing pages, email sequences, ad copy, traffic strategy, SEO content engine, revenue phase tracking, portfolio management, and unit economics — orchestrated through Claude or Cursor.",
   "type": "module",
   "license": "MIT",
   "bin": {
-    "launch-engine": "./dist/index.js"
+    "asset-factory": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "files": [
@@ -70,7 +70,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ZionHopkins/launch-engine-mcp"
+    "url": "https://github.com/ZionHopkins/asset-factory-mcp"
   },
-  "mcpName": "io.github.ZionHopkins/launch-engine"
+  "mcpName": "io.github.ZionHopkins/asset-factory"
 }

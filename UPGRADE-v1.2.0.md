@@ -1,4 +1,4 @@
-# Launch Engine v1.2.0 — Upgrade Analysis
+# Asset Factory v1.2.0 — Upgrade Analysis
 
 ## What Changed
 
@@ -116,7 +116,7 @@ This is a soft reminder for public users, not a hard gate.
 
 ## Migration Steps
 
-1. Update: `npm update launch-engine-mcp` (or `npm install launch-engine-mcp@1.2.0`)
+1. Update: `npm update asset-factory-mcp` (or `npm install asset-factory-mcp@1.2.0`)
 2. No state file migration needed — new fields are auto-populated when tools run
 3. Optional: Run `portfolio_triage` to enable revenue phase tracking
 

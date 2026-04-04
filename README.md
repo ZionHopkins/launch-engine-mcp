@@ -1,25 +1,25 @@
-# Launch Engine
+# Asset Factory
 
-[![npm version](https://img.shields.io/npm/v/launch-engine-mcp.svg)](https://www.npmjs.com/package/launch-engine-mcp)
+[![npm version](https://img.shields.io/npm/v/asset-factory-mcp.svg)](https://www.npmjs.com/package/asset-factory-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/ZionHopkins/launch-engine-mcp.svg?style=social)](https://github.com/ZionHopkins/launch-engine-mcp)
+[![GitHub stars](https://img.shields.io/github/stars/ZionHopkins/asset-factory-mcp.svg?style=social)](https://github.com/ZionHopkins/asset-factory-mcp)
 
 Agentic pipeline that transforms ideas to revenue — for solo founders and bootstrappers.
 
 ```bash
-npx -y launch-engine-mcp
+npx -y asset-factory-mcp
 ```
 
 
-![Launch Engine Demo](https://github.com/ZionHopkins/launch-engine-mcp/releases/download/untagged-475ca324e940ae1c1a8c/demo.gif)
+![Asset Factory Demo](https://github.com/ZionHopkins/asset-factory-mcp/releases/download/untagged-475ca324e940ae1c1a8c/demo.gif)
 
 ---
 
-## Why Launch Engine?
+## Why Asset Factory?
 
 Most MCP servers give you one tool. A GitHub integration. A database query. A Slack bot.
 
-Launch Engine gives you **42 tools that work as a pipeline** — the entire playbook from raw idea to validated revenue, running inside the AI client you already use.
+Asset Factory gives you **42 tools that work as a pipeline** — the entire playbook from raw idea to validated revenue, running inside the AI client you already use.
 
 - **No more blank-page paralysis.** Start with `scout` and the system tells you exactly what to do next, every step of the way.
 - **Every stage feeds the next.** Buyer research flows into offer design. Offer design flows into campaign copy. Campaign copy flows into validation. Nothing is wasted.
@@ -32,13 +32,13 @@ Launch Engine gives you **42 tools that work as a pipeline** — the entire play
 ## Install
 
 ```bash
-npm install -g launch-engine-mcp
+npm install -g asset-factory-mcp
 ```
 
 Or run directly without installing:
 
 ```bash
-npx -y launch-engine-mcp
+npx -y asset-factory-mcp
 ```
 
 ## Quick Start
@@ -50,11 +50,11 @@ Add to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "launch-engine": {
+    "asset-factory": {
       "command": "npx",
-      "args": ["-y", "launch-engine-mcp"],
+      "args": ["-y", "asset-factory-mcp"],
       "env": {
-        "LAUNCH_ENGINE_PROJECT_DIR": "/path/to/your/project"
+        "ASSET_FACTORY_PROJECT_DIR": "/path/to/your/project"
       }
     }
   }
@@ -68,11 +68,11 @@ Add to your MCP settings (`.cursor/mcp.json`):
 ```json
 {
   "mcpServers": {
-    "launch-engine": {
+    "asset-factory": {
       "command": "npx",
-      "args": ["-y", "launch-engine-mcp"],
+      "args": ["-y", "asset-factory-mcp"],
       "env": {
-        "LAUNCH_ENGINE_PROJECT_DIR": "/path/to/your/project"
+        "ASSET_FACTORY_PROJECT_DIR": "/path/to/your/project"
       }
     }
   }
@@ -82,8 +82,8 @@ Add to your MCP settings (`.cursor/mcp.json`):
 ### From Source
 
 ```bash
-git clone https://github.com/ZionHopkins/launch-engine-mcp.git
-cd launch-engine-mcp
+git clone https://github.com/ZionHopkins/asset-factory-mcp.git
+cd asset-factory-mcp
 npm install
 npm run build
 node dist/index.js
@@ -91,7 +91,7 @@ node dist/index.js
 
 ## How It Works
 
-Launch Engine is a **two-layer tool system**:
+Asset Factory is a **two-layer tool system**:
 
 **Layer A — 42 SOP Tools** (read-only): Each tool validates prerequisites against `pipeline-state.json`, loads upstream context from previous stages, checks `learnings.json` for patterns, and returns full SOP instructions enriched with that context. Your AI executes the instructions.
 
@@ -199,7 +199,7 @@ Each tool checks prerequisites automatically. If you try to run `research` befor
 
 ## Project Directory Structure
 
-Launch Engine creates and manages files in your project directory:
+Asset Factory creates and manages files in your project directory:
 
 ```
 your-project/
@@ -230,7 +230,7 @@ your-project/
 ## Configuration
 
 The project directory is resolved in order:
-1. `LAUNCH_ENGINE_PROJECT_DIR` environment variable
+1. `ASSET_FACTORY_PROJECT_DIR` environment variable
 2. `--project-dir=` CLI argument
 3. Current working directory
 

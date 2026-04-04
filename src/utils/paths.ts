@@ -1,8 +1,8 @@
 import { resolve } from "node:path";
 
 function getProjectDir(): string {
-  if (process.env.LAUNCH_ENGINE_PROJECT_DIR) {
-    return resolve(process.env.LAUNCH_ENGINE_PROJECT_DIR);
+  if (process.env.ASSET_FACTORY_PROJECT_DIR) {
+    return resolve(process.env.ASSET_FACTORY_PROJECT_DIR);
   }
 
   const cliArg = process.argv.find((a) => a.startsWith("--project-dir="));

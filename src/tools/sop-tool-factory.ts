@@ -178,7 +178,7 @@ function buildStatusResponse(
       content: [{
         type: "text" as const,
         text: [
-          "# Welcome to Launch Engine\n",
+          "# Welcome to Asset Factory\n",
           "No active pipelines found. Three paths available:\n",
           "1. **rapid_test** — $50-100 paid traffic test in 3-5 days. Signal before commitment.",
           "2. **scout** — Full active pipeline. Deep research through validated offer with sales pages, ads, and tiered validation.",

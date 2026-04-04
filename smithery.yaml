@@ -10,6 +10,6 @@ startCommand:
   commandFunction: |
     (config) => ({
       command: 'npx',
-      args: ['-y', 'launch-engine-mcp'],
-      env: config.projectDir ? { LAUNCH_ENGINE_PROJECT_DIR: config.projectDir } : {}
+      args: ['-y', 'asset-factory-mcp'],
+      env: config.projectDir ? { ASSET_FACTORY_PROJECT_DIR: config.projectDir } : {}
     })

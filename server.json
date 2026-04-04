@@ -1,25 +1,25 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.ZionHopkins/launch-engine",
-  "title": "Launch Engine — Business Execution OS",
+  "name": "io.github.ZionHopkins/asset-factory",
+  "title": "Asset Factory — Business Execution OS",
   "description": "Business Execution OS for solo founders and bootstrappers — 42 structured tools guiding raw idea to validated revenue. Market research, buyer personas, offer design, landing pages, email sequences, ad copy, traffic strategy, SEO content engine, revenue phase tracking, portfolio management, and unit economics — orchestrated through Claude or Cursor.",
   "version": "1.2.0",
-  "websiteUrl": "https://github.com/ZionHopkins/launch-engine-mcp",
+  "websiteUrl": "https://github.com/ZionHopkins/asset-factory-mcp",
   "repository": {
-    "url": "https://github.com/ZionHopkins/launch-engine-mcp",
+    "url": "https://github.com/ZionHopkins/asset-factory-mcp",
     "source": "github"
   },
   "packages": [
     {
       "registryType": "npm",
-      "identifier": "launch-engine-mcp",
+      "identifier": "asset-factory-mcp",
       "version": "1.2.0",
       "transport": {
         "type": "stdio"
       },
       "environmentVariables": [
         {
-          "name": "LAUNCH_ENGINE_PROJECT_DIR",
+          "name": "ASSET_FACTORY_PROJECT_DIR",
           "description": "Path to your project directory where pipeline-state.json and assets/ live",
           "isRequired": false,
           "isSecret": false
