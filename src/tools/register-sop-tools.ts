@@ -13,10 +13,12 @@ import {
   RAPID_TEST, RAPID_CHECK, RAPID_GRADUATE, RAPID_STATUS,
   STATUS, DAILY_CHECK, LESSONS, VOICE_EXTRACT,
   CONTENT_ENGINE, CONTENT_REPURPOSE, SEO_CHECK, TOURNAMENT,
+  BOLD_ACTION, PORTFOLIO_TRIAGE, REVENUE_REVIEW,
 } from "../sops/content/index.js";
 
 // Agent content imports
 import {
+  BOLD_ACTION_STRATEGIST,
   BUYER_RESEARCHER, CAMPAIGN_BUILDER, DREAM_100_RESEARCHER, MARKET_RESEARCHER,
   OFFER_ARCHITECT, OPTIMIZER, PASSIVE_ASSET_DEPLOYER, PERSONA_QA,
   PRODUCT_DESIGNER, RAPID_TESTER, TRAFFIC_AGENT, VOICE_EXTRACTION_ENGINE,
@@ -64,6 +66,9 @@ const SOP_CONTENT: Record<string, string> = {
   content_repurpose: CONTENT_REPURPOSE,
   seo_check: SEO_CHECK,
   tournament: TOURNAMENT,
+  bold_action: BOLD_ACTION,
+  portfolio_triage: PORTFOLIO_TRIAGE,
+  revenue_review: REVENUE_REVIEW,
 };
 
 /** Map subagent names to their instruction content */
@@ -82,6 +87,7 @@ const AGENT_CONTENT: Record<string, string> = {
   "rapid-tester": RAPID_TESTER,
   "content-strategist": CONTENT_STRATEGIST,
   "seo-auditor": SEO_AUDITOR,
+  "bold-action-strategist": BOLD_ACTION_STRATEGIST,
 };
 
 export function registerSopTools(server: McpServer): void {

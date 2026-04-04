@@ -35,6 +35,19 @@ Read pipeline-state.json for:
 - Any active funnel tests (from /funnel-optimize)
 - Scale protocol status (from /scale)
 
+### Deadline & Revenue Phase Alerts
+
+Before generating the daily pulse, check:
+
+**Deployment Deadline** (if deployment_deadline_at exists):
+- If deadline is in the future and <24 hours: prepend WARNING to output
+- If deadline has passed and deployment_initiated_at is null: flag "Deployment deadline passed"
+
+**Revenue Phase** (if revenue_phase exists):
+- Include current revenue_phase in the status line
+- If in "signal" phase >7 days with traffic: flag "No signal yet"
+- If in "cash" phase >14 days: flag "Signal but no sale"
+
 ### Step 3: Output — Maximum 10 Lines
 
 Structure (adapt based on what's active):

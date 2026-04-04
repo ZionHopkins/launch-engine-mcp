@@ -5,7 +5,7 @@ import { registerUtilityTools } from "./tools/register-utility-tools.js";
 export function createServer(): McpServer {
   const server = new McpServer({
     name: "launch-engine",
-    version: "1.0.0",
+    version: "1.2.0",
   });
 
   registerSopTools(server);

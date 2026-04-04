@@ -1,5 +1,5 @@
 /**
- * Full prerequisite map for all 39 SOP tools.
+ * Full prerequisite map for all 42 SOP tools.
  *
  * Each entry defines:
  *  - prerequisites: stages that must be "complete" (or specific verdict) before this tool runs
@@ -609,6 +609,51 @@ export const DEPENDENCY_GRAPH: Record<string, ToolDependency> = {
     isEntryPoint: false,
     learningsCategories: [],
     subagent: "voice-extraction-engine",
+  },
+
+  // ═══════════════════════════════════════════════
+  // BOLD ACTION (Post-QA)
+  // ═══════════════════════════════════════════════
+  bold_action: {
+    name: "bold_action",
+    description: "Bold Action Playbook — identifies the single highest-leverage irreversible move for credibility compression and ICP surface area expansion.",
+    prerequisites: [
+      { path: "layer_2.qa.status", value: "complete", label: "QA Gate" },
+    ],
+    layer: "layer_2",
+    stateKey: "bold_action",
+    isPipelineTool: true,
+    isReadOnly: false,
+    isEntryPoint: false,
+    learningsCategories: ["positioning", "credibility", "distribution"],
+    subagent: "bold-action-strategist",
+  },
+
+  // ═══════════════════════════════════════════════
+  // REVENUE PHASE MANAGEMENT
+  // ═══════════════════════════════════════════════
+  portfolio_triage: {
+    name: "portfolio_triage",
+    description: "Portfolio Triage — ranks all pipelines past unit-economics by Profit Velocity Score and enforces active pipeline cap.",
+    prerequisites: [],
+    layer: "cross_cutting",
+    stateKey: "",
+    isPipelineTool: false,
+    isReadOnly: false,
+    isEntryPoint: true,
+    learningsCategories: ["market_selection"],
+  },
+
+  revenue_review: {
+    name: "revenue_review",
+    description: "Weekly Revenue Review — compares actual revenue vs projections for selected pipelines and manages revenue phase transitions.",
+    prerequisites: [],
+    layer: "cross_cutting",
+    stateKey: "",
+    isPipelineTool: false,
+    isReadOnly: false,
+    isEntryPoint: true,
+    learningsCategories: [],
   },
 };
 

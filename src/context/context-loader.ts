@@ -34,6 +34,11 @@ const UPSTREAM_FILES: Record<string, string[]> = {
   passive_deploy: ["layer_1.therapeutic_buyer.output_file"],
   feedback: ["layer_2.deploy.output_file"],
   voice_extract: ["layer_2.qa.output_file"],
+  bold_action: [
+    "layer_1.therapeutic_buyer.output_file",
+    "layer_1.building_blocks.output_file",
+    "layer_2.qa.output_file",
+  ],
 };
 
 /**
