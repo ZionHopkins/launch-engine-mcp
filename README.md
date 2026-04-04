@@ -19,7 +19,7 @@ npx -y launch-engine-mcp
 
 Most MCP servers give you one tool. A GitHub integration. A database query. A Slack bot.
 
-Launch Engine gives you **39 tools that work as a pipeline** — the entire playbook from raw idea to validated revenue, running inside the AI client you already use.
+Launch Engine gives you **42 tools that work as a pipeline** — the entire playbook from raw idea to validated revenue, running inside the AI client you already use.
 
 - **No more blank-page paralysis.** Start with `scout` and the system tells you exactly what to do next, every step of the way.
 - **Every stage feeds the next.** Buyer research flows into offer design. Offer design flows into campaign copy. Campaign copy flows into validation. Nothing is wasted.
@@ -93,19 +93,20 @@ node dist/index.js
 
 Launch Engine is a **two-layer tool system**:
 
-**Layer A — 39 SOP Tools** (read-only): Each tool validates prerequisites against `pipeline-state.json`, loads upstream context from previous stages, checks `learnings.json` for patterns, and returns full SOP instructions enriched with that context. Your AI executes the instructions.
+**Layer A — 42 SOP Tools** (read-only): Each tool validates prerequisites against `pipeline-state.json`, loads upstream context from previous stages, checks `learnings.json` for patterns, and returns full SOP instructions enriched with that context. Your AI executes the instructions.
 
 **Layer B — 3 Utility Tools** (mutations): `update_pipeline_state`, `save_asset`, `capture_learning`. These handle all state writes and file creation. Your AI calls them after executing each SOP.
 
 ## The Pipeline
 
 ```
-Four entry points:
+Five entry points:
 
-1. scout        → Full pipeline (research → offer → build → deploy → validate)
-2. rapid_test   → Quick $50-100 test (signal in 3-5 days)
-3. passive_deploy → Marketplace assets (after research)
-4. tournament   → Batch-evaluate 3-5 ideas through Layer 1 simultaneously
+1. scout            → Full pipeline (research → offer → build → deploy → validate)
+2. rapid_test       → Quick $50-100 test (signal in 3-5 days)
+3. passive_deploy   → Marketplace assets (after research)
+4. tournament       → Batch-evaluate 3-5 ideas through Layer 1 simultaneously
+5. portfolio_triage → Rank existing pipelines by profit velocity, select top N
 ```
 
 ### Full Pipeline Flow
@@ -126,6 +127,13 @@ TRAFFIC (Paid):
 ORGANIC GROWTH (runs parallel with paid):
   content_engine → content_repurpose → seo_check (monthly)
 
+BOLD ACTION (post-QA):
+  bold_action → credibility compression playbook
+
+REVENUE PHASE MANAGEMENT (optional overlay):
+  portfolio_triage → revenue_review (weekly)
+  Phases: Signal → Cash → Repeat → Scale
+
 CROSS-CUTTING:
   status | daily_check | lessons | voice_extract | dream_100 | tournament
 ```
@@ -134,7 +142,7 @@ Each tool checks prerequisites automatically. If you try to run `research` befor
 
 ## Tools Reference
 
-### SOP Tools (39)
+### SOP Tools (42)
 
 | Tool | Description | Prerequisites |
 |------|-------------|---------------|
@@ -177,6 +185,9 @@ Each tool checks prerequisites automatically. If you try to run `research` befor
 | `content_repurpose` | Single-pass multi-platform content repurposing | content_engine |
 | `seo_check` | Monthly SEO/GEO audit with AI citation tracking | content_engine |
 | `tournament` | Batch-evaluate 3-5 ideas through Layer 1 | None (entry point) |
+| `bold_action` | Bold Action Playbook — highest-leverage irreversible credibility move | qa |
+| `portfolio_triage` | Rank pipelines by Profit Velocity Score, enforce active cap | None (entry point) |
+| `revenue_review` | Weekly revenue phase assessment (Signal → Cash → Repeat → Scale) | None (entry point) |
 
 ### Utility Tools (3)
 
@@ -206,6 +217,7 @@ your-project/
         ├── voice/            # Brand voice calibration
         ├── passive-portfolio/ # PADA outputs
         ├── rapid-test/       # Rapid test assets
+        ├── bold-action/      # Bold Action playbook
         └── content/          # Organic growth engine outputs
             ├── pillar/       # 2,000-4,000 word guides
             ├── spokes/       # 1,000-2,000 word pages
@@ -265,6 +277,21 @@ When you run `status` with no existing pipeline, you'll see:
 - **Don't ignore KILL signals** — if rapid test metrics hit kill thresholds, kill it. If validation says KILL, capture the lessons and move on. Sunk cost is not a strategy.
 - **Don't publish without `qa` clearance** — unvetted copy with unattributed claims or persona misalignment damages trust and conversion rates.
 - **Don't run the full pipeline for every idea** — that's what `rapid_test` is for. Test 5-10 ideas cheaply, then invest the full pipeline in the winner.
+
+## Revenue Phase System (New in v1.2.0)
+
+Optional overlay that tracks revenue progression through four phases:
+
+| Phase | Goal | Gate to Advance |
+|-------|------|-----------------|
+| Signal | Get intent expressed | Email signup, deposit, DM response |
+| Cash | Close first sale | First payment received |
+| Repeat | Close 3+ at same price | 3 cumulative sales |
+| Scale | Hit target MRR | Sustained monthly revenue |
+
+**How to enable:** Run `portfolio_triage` to select active pipelines. Selected pipelines get `revenue_phase: "signal"`. Run `revenue_review` weekly to track progress.
+
+`scout` now includes a **Sales Cycle Reality Check** that estimates days-to-first-sale per market (GREEN <=14d, YELLOW 15-30d, RED >30d). This feeds into the Profit Velocity Score used by `portfolio_triage`.
 
 ## Automated QA Test Suite (New in v1.1.0)
 
