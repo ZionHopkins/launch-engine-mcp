@@ -1,7 +1,7 @@
 {
   "name": "launch-engine-mcp",
-  "version": "1.1.0",
-  "description": "Business Execution OS for solo founders and bootstrappers — 39 structured tools guiding raw idea to validated revenue. Market research, buyer personas, offer design, landing pages, email sequences, ad copy, traffic strategy, SEO content engine, and unit economics — orchestrated through Claude or Cursor.",
+  "version": "1.2.0",
+  "description": "Business Execution OS for solo founders and bootstrappers — 42 structured tools guiding raw idea to validated revenue. Market research, buyer personas, offer design, landing pages, email sequences, ad copy, traffic strategy, SEO content engine, revenue phase tracking, portfolio management, and unit economics — orchestrated through Claude or Cursor.",
   "type": "module",
   "license": "MIT",
   "bin": {

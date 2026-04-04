@@ -41,6 +41,10 @@ export function registerSopTool(server: McpServer, config: SopToolConfig): void 
     inputSchema.market_name = z.string().optional().describe("Pipeline name for context");
   } else if (dep.isEntryPoint && (dep.name === "status" || dep.name === "rapid_status")) {
     // No required inputs
+  } else if (dep.isEntryPoint && dep.name === "portfolio_triage") {
+    inputSchema.max_active = z.number().optional().describe("Maximum active pipelines (default: 3)");
+  } else if (dep.isEntryPoint && dep.name === "revenue_review") {
+    // No required inputs — operates on all selected pipelines
   } else if (dep.layer === "rapid" && !dep.isEntryPoint) {
     inputSchema.market_name = z.string().describe("The rapid test slug to check/graduate");
   } else {

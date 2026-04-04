@@ -27,6 +27,20 @@ User has a new idea or market to explore. No pipeline exists yet.
    - Can you reach them ONLINE? (Identifiable communities, platforms, gathering points)
    - Is this a GROWING or STABLE market? (Not declining or fad-dependent)
 
+3.5. **Sales Cycle Reality Check (Profit Velocity Signal)**
+   Run 1-2 targeted searches:
+   - "[market] average sales cycle length"
+   - "[market] time from first contact to first sale"
+
+   Estimate days from first marketing touch to first purchase. Record as sales_cycle_estimate_days in pipeline state.
+
+   Color coding:
+   - GREEN (<=14 days): Fast cycle. Ideal for rapid validation.
+   - YELLOW (15-30 days): Moderate. Validation windows need longer.
+   - RED (>30 days): Slow cycle. Requires patience and deeper budget.
+
+   This does NOT block the pipeline. It informs portfolio_triage priority later.
+
 4. **Run preliminary Agent Autonomy assessment.** Quick gut-check on the 7 dimensions — not full scoring yet. Flag obvious LOW AUTONOMY markets immediately.
 
 5. **Present the Scout Report:**
@@ -40,6 +54,7 @@ User has a new idea or market to explore. No pipeline exists yet.
    - Create new pipeline entry
    - Set \`current_stage: "scout"\`
    - Set \`scout.status: "complete"\`
+   - Set \`scout.sales_cycle_estimate_days\` to the estimated number
    - Record output file location
 
 ## Output

@@ -127,6 +127,16 @@ Learnings captured:
   - Landing page conversion rate: [X]% [above/below benchmark]
 \`\`\`
 
+**Revenue Phase Gate Check (if revenue_phase is set):**
+
+When issuing an ADVANCE verdict and the pipeline has revenue_phase set, also update revenue milestones:
+
+- Tier 1 advance with signups: Set revenue_phase_gates.signal.status to "achieved" and signal_achieved_at to today
+- Tier 2 advance with sales: Set revenue_phase to "cash", record first_sale_at, calculate days_to_first_sale
+- Tier 3 advance with sustained sales (3+): Set revenue_phase to "repeat", record third_sale_at
+
+Revenue phase transitions execute automatically as part of the advance.
+
 If advancing from Tier 3 → scaling mode:
 \`\`\`
 VERDICT: ✅ VALIDATED — ENTER SCALING MODE

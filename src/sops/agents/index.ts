@@ -1,3 +1,4 @@
+export { BOLD_ACTION_STRATEGIST } from "./bold-action-strategist.js";
 export { BUYER_RESEARCHER } from "./buyer-researcher.js";
 export { CAMPAIGN_BUILDER } from "./campaign-builder.js";
 export { CONTENT_STRATEGIST } from "./content-strategist.js";

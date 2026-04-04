@@ -27,6 +27,7 @@ Invoke \`optimizer\` subagent with:
 2. Current pipeline state (from \`pipeline-state.json\`)
 3. Promise-Product Alignment Report path (from \`assets/[market-name]/product/\`)
 4. All relevant asset file paths (campaigns, copy, product architecture)
+5. Revenue phase status (if revenue_phase is set): current phase, what gate is next, days since deployment
 
 The subagent will:
 - Classify the signal using its 8-row diagnosis table (covers: no traffic, traffic/no signups, signups/no opens, opens/no clicks, clicks/no conversions, high refunds, low completion, everything working)
@@ -41,6 +42,8 @@ The subagent will:
    - Layer 2 asset issue → fix specific file, re-run \`/qa\`
    - Traffic issue → \`/creative-test\`, \`/funnel-optimize\`, or \`/channels\`
    - Scale mode → \`/scale\`
+   - Revenue stall (signal but no sale after 14+ days) → \`/bold-action\` for credibility gap, or \`/build-blocks\` for offer revision
+   - Revenue regression (had sales, lost them) → \`/unit-economics\` recalculation + \`/stress-test\` re-evaluation
 
 ### Step 4: Update pipeline-state.json
 - Add iteration entry to \`iteration_history\` array with: \`{date, data_received, diagnosis, route, iteration_plan_file}\`

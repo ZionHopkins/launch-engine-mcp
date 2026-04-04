@@ -246,6 +246,16 @@ Update pipeline-state.json:
 
 Present the deployment checklist to the user. This is Tier 2 (Notify & Proceed) — no approval needed for generating the package. The user decides when to execute the checklist.
 
+### Step 7: Set Deployment Timer (Optional)
+
+If the pipeline has triage_status set to "selected":
+1. Set deployment_deadline_at to the current time plus 48 hours (ISO 8601)
+2. Present the deadline to the user:
+   "Deployment deadline: [exact date/time]. Deploy this checklist within the deadline."
+3. daily_check will monitor the deadline and flag approaching or expired deadlines.
+
+If triage_status is not set, skip this step.
+
 ## Autonomy
 Tier 1 — Full Auto for package generation.
 Tier 2 — Notify & Proceed for presenting the package.
